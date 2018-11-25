@@ -6,11 +6,25 @@
 // @author       jojo
 // @match        https://www.messenger.com/*
 // @grant        none
+// @require      http://code.jquery.com/jquery-3.3.1.min.js
+// @require      https://cdnjs.cloudflare.com/ajax/libs/favico.js/0.3.10/favico.min.js
 // ==/UserScript==
 
 (function() {
     'use strict';
 
+    setInterval(loop, 1000);
+
+    function loop() {
+        //avant premier message rel="shortcut icon"
+        var test = $('link[rel="icon"]')[0]; // apres premier message
+        if (test != null && test.type !== 'image/png'){
+            test.href = 'https://static.xx.fbcdn.net/rsrc.php/y7/r/O6n_HQxozp9.ico';
+            window.myFavicon = new Favico({animation: 'none'});
+            console.log('a');
+        }
+    }
+
     // https://shibboleth.insa-cvl.fr/idp/Authn/UserPassword
-    // Your code here...
+
 })();

@@ -4,7 +4,7 @@
 // @version      0.1
 // @description  try to take over the world!
 // @author       jojo
-// @match        *outlook.live.com/mail/*
+// @match        https://outlook.live.com/mail/*
 // @grant        none
 // @require      http://code.jquery.com/jquery-3.3.1.min.js
 // @require      https://cdnjs.cloudflare.com/ajax/libs/favico.js/0.3.10/favico.min.js
@@ -33,15 +33,9 @@
         }
         unreadMails = newUnread;
         if (numToUpdate > 0) {
-            applyBadge(newUnread);
+            favicon.badge(newUnread);
             numToUpdate = numToUpdate - 1;
         }
-    }
-
-
-    function applyBadge(count) {
-        console.log('Applying new bubble : ' + count);
-        favicon.badge(count);
     }
 
 

@@ -40,9 +40,6 @@
 
 
     function applyBadge(count) {
-        if (count > 99) {
-            count = '∞';
-        }
         console.log('Applying new bubble : ' + count);
         favicon.badge(count);
     }

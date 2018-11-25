@@ -22,7 +22,6 @@
     var favicon = new Favico({animation: 'none'});
     setInterval(loop, 1000);
 
-
     function loop() {
         let newUnread = getUnreadMailsCount();
         if (newUnread > unreadMails && unreadMails !== -1) {
@@ -38,7 +37,6 @@
         }
     }
 
-
     function onNewMail() {
         let expediteur = document.getElementsByClassName('JB7uCi4jMBH3ZOL7mTaYt')[0].firstChild.firstChild.textContent;
         let sujet = document.getElementsByClassName('_2oS4t0YANyzQh_CKsUMMbR')[0].firstChild.textContent;
@@ -50,7 +48,6 @@
         };
     }
 
-
     function getUnreadMailsCount() {
         let newUnread = 0;
         jQuery.each($("div[role*=treeitem][title*='" + checkedFolder + "']"), function (name, elem) {
@@ -59,7 +56,6 @@
         });
         return newUnread;
     }
-
 
     function applycss(css) {
         let head = document.getElementsByTagName('head')[0];

@@ -16,7 +16,7 @@
     setInterval(loop, 1000);
 
     function loop() {
-        //avant premier message rel="shortcut icon"
+        //avant premier message, rel="shortcut icon"
         var test = $('link[rel="icon"]')[0]; // apres premier message
         if (test != null && test.type !== 'image/png'){
             test.href = 'https://static.xx.fbcdn.net/rsrc.php/y7/r/O6n_HQxozp9.ico';

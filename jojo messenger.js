@@ -11,5 +11,6 @@
 (function() {
     'use strict';
 
+    // https://shibboleth.insa-cvl.fr/idp/Authn/UserPassword
     // Your code here...
 })();

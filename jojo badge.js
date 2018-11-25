@@ -23,7 +23,7 @@
 
     function loop() {
         let num = getTitleCount();
-        if (oldNum != num) {
+        if (oldNum !== num) {
             numToUpdate = 5;
         }
         oldNum = num;

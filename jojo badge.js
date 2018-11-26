@@ -32,10 +32,18 @@
     }
     
     function getTitleCount() {
-        let num = parseInt(document.title.replace(/^\D+/g, ''), 10);
-        if (isNaN(num)){
-            num = 0;
+        let num = 0;
+        if (window.location.href.includes('https://partage.insa-cvl.fr/') ){
+            let inboxFolderLabel = document.getElementById('zti__main_Mail__2_textCell');
+            num = inboxFolderLabel.textContent.slice(inboxFolderLabel.textContent.indexOf('(')+1, -1);
         }
+        else {
+            num = parseInt(document.title.replace(/^\D+/g, ''), 10);
+            if (isNaN(num)){
+                num = 0;
+            }
+        }
+
         return num;
     }
 

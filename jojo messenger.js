@@ -17,12 +17,23 @@
     function loop() {
         let unread = document.getElementsByClassName('_1ht3').length;
         //avant premier message, rel="shortcut icon"
-        var test = $('link[rel="icon"]')[0]; // apres premier message
+        //let test = $('link[rel="icon"]')[0]; // apres premier message
+        let test = getIcon();
         if (test != null && test.type !== 'image/png') {
             test.href = 'https://static.xx.fbcdn.net/rsrc.php/y7/r/O6n_HQxozp9.ico';
             JojoBadge.favicon = new Favico({animation: 'none'});
         }
         JojoBadge.update(unread);
+    }
+
+    function getIcon() {
+        let links = document.getElementsByTagName('link');
+        for (let link of links){
+            if (link.rel === 'icon'){
+                return link;
+            }
+        }
+        return null;
     }
 
 })();

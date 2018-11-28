@@ -17,7 +17,7 @@
     Notification.requestPermission();
     const checkedFolder = 'Boîte de réception';
     const logo = 'https://ow2.res.office365.com/owamail/20181112.03/resources/images/favicons/mail-seen.ico';
-    var unreadMails = -1;
+    let unreadMails = -1;
 
     setInterval(loop, 1000);
 

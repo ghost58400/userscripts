@@ -8,6 +8,8 @@
 // @grant        none
 // @require      http://code.jquery.com/jquery-3.3.1.min.js
 // @require      https://cdnjs.cloudflare.com/ajax/libs/favico.js/0.3.10/favico.min.js
+
+// @require      https://raw.githubusercontent.com/ghost58400/userscripts/master/jojo_badge.js
 // ==/UserScript==
 
 (function () {
@@ -18,8 +20,7 @@
     const checkedFolder = 'Boîte de réception';
     const logo = 'https://ow2.res.office365.com/owamail/20181112.03/resources/images/favicons/mail-seen.ico';
     var unreadMails = -1;
-    var numToUpdate = 5;
-    var favicon = new Favico({animation: 'none'});
+
     setInterval(loop, 1000);
 
     function loop() {
@@ -27,14 +28,8 @@
         if (newUnread > unreadMails && unreadMails !== -1) {
             onNewMail();
         }
-        if (newUnread !== unreadMails) {
-            numToUpdate = 5;
-        }
         unreadMails = newUnread;
-        if (numToUpdate > 0) {
-            favicon.badge(newUnread);
-            numToUpdate = numToUpdate - 1;
-        }
+        JojoBadge.update(unreadMails)
     }
 
     function onNewMail() {

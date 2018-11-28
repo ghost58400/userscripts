@@ -7,6 +7,7 @@
 // @match        https://www.facebook.com/*
 // @match        https://www.messenger.com/*
 // @match        https://partage.insa-cvl.fr/*
+// @match        https://outlook.live.com/mail/*
 // @grant        none
 // @require      http://code.jquery.com/jquery-3.3.1.min.js
 // @require      https://cdnjs.cloudflare.com/ajax/libs/favico.js/0.3.10/favico.min.js
@@ -15,35 +16,26 @@
 (function () {
     'use strict';
 
-    window.myFavicon = new Favico({animation: 'none'});
-    var actualBadge = 0;
+    window.jojoFavicon = new Favico({animation: 'none'});
+    window.jojoBadge = 0;
     var numToUpdate = 5;
     var updatesSkipped = 0;
     setInterval(loop, 1000);
 
     function loop() {
-        if (window.location.href.includes('https://www.messenger.com/') ){
-            //avant premier message, rel="shortcut icon"
-            let test = $('link[rel="icon"]')[0]; // apres premier message
-            if (test != null && test.type !== 'image/png'){
-                test.href = 'https://static.xx.fbcdn.net/rsrc.php/y7/r/O6n_HQxozp9.ico';
-                window.myFavicon = new Favico({animation: 'none'});
-            }
-        }
-
         let newNum = getTitleCount();
-        if (actualBadge !== newNum) {
+        if (window.jojoBadge !== newNum) {
             numToUpdate = 5;
         }
         if (updatesSkipped >= 4){
             numToUpdate = 1;
         }
         if (numToUpdate > 0){
-            window.myFavicon.badge(newNum);
+            window.jojoFavicon.badge(newNum);
             console.log('badge updated to ' + newNum);
             numToUpdate = numToUpdate - 1;
             updatesSkipped = 0;
-            actualBadge = newNum;
+            window.jojoBadge = newNum;
         }
         else {
             updatesSkipped = updatesSkipped + 1;

@@ -12,10 +12,11 @@
 
 (function() {
     'use strict';
-
+    var unread = 0;
     setInterval(loop, 1000);
 
     function loop() {
+        unread = document.getElementsByClassName('_1ht3').length;
         //avant premier message, rel="shortcut icon"
         var test = $('link[rel="icon"]')[0]; // apres premier message
         if (test != null && test.type !== 'image/png'){

@@ -1,15 +1,13 @@
 // ==UserScript==
-// @name         jojo Outlook
+// @name         jojo outlook
 // @namespace    http://tampermonkey.net/
 // @version      0.1
 // @description  try to take over the world!
 // @author       jojo
 // @match        https://outlook.live.com/mail/*
 // @grant        none
-// @require      http://code.jquery.com/jquery-3.3.1.min.js
-// @require      https://cdnjs.cloudflare.com/ajax/libs/favico.js/0.3.10/favico.min.js
-
 // @require      https://raw.githubusercontent.com/ghost58400/userscripts/master/jojo_badge.js
+// @require      http://code.jquery.com/jquery-3.3.1.min.js
 // ==/UserScript==
 
 (function () {

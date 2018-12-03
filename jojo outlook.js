@@ -31,14 +31,23 @@
     }
 
     function onNewMail() {
-        let expediteur = document.getElementsByClassName('JB7uCi4jMBH3ZOL7mTaYt')[0].firstChild.firstChild.textContent;
-        let sujet = document.getElementsByClassName('_2oS4t0YANyzQh_CKsUMMbR')[0].firstChild.textContent;
-        let contenu = document.getElementsByClassName('_3AS4zRv6-AOsdARqb5npCq')[0].textContent;
+        try {
+            let expediteur = document.getElementsByClassName('JB7uCi4jMBH3ZOL7mTaYt')[0].firstChild.firstChild.textContent;
+            let sujet = document.getElementsByClassName('_2oS4t0YANyzQh_CKsUMMbR')[0].firstChild.textContent;
+            let contenu = document.getElementsByClassName('_3AS4zRv6-AOsdARqb5npCq')[0].textContent;
 
-        let notification = new Notification(expediteur, {body: sujet + ' - ' + contenu, icon: logo});
-        notification.onclick = function () {
-            window.focus();
-        };
+            let notification = new Notification(expediteur, {body: sujet + ' - ' + contenu, icon: logo});
+            notification.onclick = function () {
+                window.focus();
+            };
+        }
+        catch (e) {
+            let notification = new Notification(expediteur, {body: 'Nouveau mail', icon: logo});
+            notification.onclick = function () {
+                window.focus();
+            };
+        }
+
     }
 
     function getUnreadMailsCount() {

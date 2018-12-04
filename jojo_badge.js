@@ -6,14 +6,20 @@
     window.JojoBadge = {
         favicon: new Favico({animation: 'none'}),
         actualBadge: 0,
-        numToUpdate: 5,
-        updatesSkipped: 0,
+        numToUpdate: 5, //nombre d'updates consecutives
+        numToUpdateFavico: 0,
+        updatesSkipped: 0, //nombre d'updates sautées
+        updateFavico: function () {
+            this.favicon = new Favico({animation: 'none'});
+            this.numToUpdateFavico = 10;
+        },
         update: function (newNum) {
+            this.numToUpdateFavico--;
             if (this.actualBadge !== newNum) {
                 this.numToUpdate = 5;
             }
             if (this.updatesSkipped >= 4) {
-                this.numToUpdate = 1;
+                this.numToUpdate++;
             }
             if (this.numToUpdate > 0) {
                 this.favicon.badge(newNum);
@@ -24,7 +30,12 @@
             } else {
                 this.updatesSkipped++;
             }
+            if (this.numToUpdateFavico === 0){
+                this.updateFavico();
+            }
         }
     };
+
+    JojoBadge.updateFavico();
 
 })();

@@ -21,7 +21,7 @@
         let test = getIcon();
         if (test != null && test.type !== 'image/png') {
             test.href = 'https://static.xx.fbcdn.net/rsrc.php/y7/r/O6n_HQxozp9.ico';
-            JojoBadge.favicon = new Favico({animation: 'none'});
+            JojoBadge.updateFavico();
         }
         JojoBadge.update(unread);
     }

@@ -10,8 +10,10 @@
         numToUpdateFavico: 0,
         updatesSkipped: 0, //nombre d'updates sautées
         updateFavico: function () {
+            this.favicon.reset();
             this.favicon = new Favico({animation: 'none'});
             this.numToUpdateFavico = 10;
+            this.favicon.badge(this.actualBadge);
             console.log('favico updated');
         },
         update: function (newNum) {

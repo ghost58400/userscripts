@@ -42,7 +42,7 @@
             };
         }
         catch (e) {
-            let notification = new Notification(expediteur, {body: 'Nouveau mail', icon: logo});
+            let notification = new Notification('Outlook', {body: 'Nouveau mail', icon: logo});
             notification.onclick = function () {
                 window.focus();
             };

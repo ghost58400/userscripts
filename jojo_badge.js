@@ -12,6 +12,7 @@
         updateFavico: function () {
             this.favicon = new Favico({animation: 'none'});
             this.numToUpdateFavico = 10;
+            console.log('favico updated');
         },
         update: function (newNum) {
             this.numToUpdateFavico--;

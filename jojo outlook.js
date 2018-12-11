@@ -22,12 +22,17 @@
     setInterval(loop, 1000);
 
     function loop() {
-        let newUnread = getUnreadMailsCount();
-        if (newUnread > unreadMails && unreadMails !== -1) {
-            onNewMail();
+        let newUnread = 0;
+        try {
+            newUnread = getUnreadMailsCount();
         }
-        unreadMails = newUnread;
-        JojoBadge.update(unreadMails)
+        finally {
+            if (newUnread > unreadMails && unreadMails !== -1) {
+                onNewMail();
+            }
+            unreadMails = newUnread;
+            JojoBadge.update(unreadMails);
+        }
     }
 
     function onNewMail() {

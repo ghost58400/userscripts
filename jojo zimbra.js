@@ -15,9 +15,16 @@
     setInterval(loop, 1000);
 
     function loop() {
-        let inboxFolderLabel = document.getElementById('zti__main_Mail__2_textCell');
-        if (inboxFolderLabel != null) {
-            let num = inboxFolderLabel.textContent.slice(inboxFolderLabel.textContent.indexOf('(') + 1, -1);
+        let inboxFolderLabel = '';
+
+        let num = 0;
+        try {
+            inboxFolderLabel = document.getElementById('zti__main_Mail__2_textCell');
+            if (inboxFolderLabel != null) {
+                num = inboxFolderLabel.textContent.slice(inboxFolderLabel.textContent.indexOf('(') + 1, -1);
+            }
+        }
+        finally {
             JojoBadge.update(num);
         }
     }

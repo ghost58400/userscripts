@@ -15,11 +15,16 @@
     setInterval(loop, 1000);
 
     function loop() {
-        let num = parseInt(document.title.replace(/^\D+/g, ''), 10);
-        if (isNaN(num)) {
-            num = 0;
+        let num = 0;
+        try {
+            num = parseInt(document.title.replace(/^\D+/g, ''), 10);
+            if (isNaN(num)) {
+                num = 0;
+            }
         }
-        JojoBadge.update(num);
+        finally {
+            JojoBadge.update(num);
+        }
     }
 
 })();

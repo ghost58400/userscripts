@@ -15,8 +15,13 @@
     setInterval(loop, 1000);
 
     function loop() {
-        let num = parseInt(document.getElementById('notificationsCountValue').innerText, 10);
-        JojoBadge.update(num);
+        let num = 0;
+        try {
+            num = parseInt(document.getElementById('notificationsCountValue').innerText, 10);
+        }
+        finally {
+            JojoBadge.update(num);
+        }
     }
 
 })();

@@ -42,8 +42,8 @@
             //let contenu = document.getElementsByClassName('_3AS4zRv6-AOsdARqb5npCq')[0].textContent;
 
             let expediteur = document.getElementsByClassName('root-84')[0].firstChild.textContent;
-            let sujet = document.getElementsByClassName('VI4lUBm4zoYvajIGOPdav')[0].firstChild.textContent;
-            let contenu = document.getElementsByClassName('KJFCQQqF8S2nJWF1vjTTq')[0].textContent;
+            let sujet = document.getElementsByClassName('RKJYnFQ991LYsw_styUw')[0].firstChild.textContent;
+            let contenu = document.getElementsByClassName('_2FgAR8a17v_vs5Wo3aA7SR')[0].textContent;
 
             let notification = new Notification(expediteur, {body: sujet + ' - ' + contenu, icon: logo});
             notification.onclick = function () {

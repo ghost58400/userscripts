@@ -23,6 +23,10 @@
             if (inboxFolderLabel != null) {
                 num = inboxFolderLabel.textContent.slice(inboxFolderLabel.textContent.indexOf('(') + 1, -1);
             }
+            num = Number(num);
+            if (isNaN(num)){
+                num = 0;
+            }
         }
         finally {
             JojoBadge.update(num);

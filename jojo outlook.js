@@ -13,7 +13,7 @@
 (function () {
     'use strict';
 
-    applycss('._2qPmszDwBfYpF7PO9Mn3KN{display:none !important;}');
+    applycss('._1_ag99JsBHxI6S4FP5ayPv{display:none !important;}'); // cache menu publicités
     Notification.requestPermission();
     const checkedFolder = 'Boîte de réception';
     const logo = 'https://ow2.res.office365.com/owamail/20181112.03/resources/images/favicons/mail-seen.ico';
@@ -25,8 +25,7 @@
         let newUnread = 0;
         try {
             newUnread = getUnreadMailsCount();
-        }
-        finally {
+        } finally {
             if (newUnread > unreadMails && unreadMails !== -1) {
                 onNewMail();
             }
@@ -37,21 +36,25 @@
 
     function onNewMail() {
         try {
-            //let expediteur = document.getElementsByClassName('JB7uCi4jMBH3ZOL7mTaYt')[0].firstChild.firstChild.textContent;
-            //let sujet = document.getElementsByClassName('_2oS4t0YANyzQh_CKsUMMbR')[0].firstChild.textContent;
-            //let contenu = document.getElementsByClassName('_3AS4zRv6-AOsdARqb5npCq')[0].textContent;
 
-            let expediteur = document.getElementsByClassName('root-84')[0].firstChild.textContent;
-            let sujet = document.getElementsByClassName('RKJYnFQ991LYsw_styUw')[0].firstChild.textContent;
+            let firstIsUnread = document.getElementsByClassName('_1t7vHwGnGnpVspzC4A22UM')[0].firstElementChild.getAttribute('aria-label').startsWith('Non lu');
+            if (!firstIsUnread){
+                return;
+            }
+
+            // premier non lu : _1mLYmTUS21AGg7NMqFD_vN
+            // premier lu : _3HQ_h7iVcVeOo03bOFpl__
+            let expediteur = document.getElementsByClassName('_1mLYmTUS21AGg7NMqFD_vN')[0].firstElementChild.textContent;
+            let sujet = document.getElementsByClassName('RKJYnFQ991LYsw_styUw')[0].firstElementChild.textContent;
             let contenu = document.getElementsByClassName('_2FgAR8a17v_vs5Wo3aA7SR')[0].textContent;
 
             let notification = new Notification(expediteur, {body: sujet + ' - ' + contenu, icon: logo});
             notification.onclick = function () {
                 window.focus();
             };
-        }
-        catch (e) {
-            let notification = new Notification('Outlook', {body: 'Nouveau mail', icon: logo});
+        } catch (e) {
+            console.log(e);
+            let notification = new Notification('Outlook', {body: 'Nouveau mail\nExtension outdated', icon: logo});
             notification.onclick = function () {
                 window.focus();
             };

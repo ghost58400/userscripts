@@ -16,7 +16,7 @@
     applycss('._1_ag99JsBHxI6S4FP5ayPv{display:none !important;}'); // cache menu publicités
     Notification.requestPermission();
     const checkedFolder = 'Boîte de réception';
-    const logo = 'https://ow2.res.office365.com/owamail/20181112.03/resources/images/favicons/mail-seen.ico';
+    const logo = 'https://ow2.res.office365.com/owamail/2019040101.05/resources/images/favicons/mail-seen.ico';
     let unreadMails = -1;
 
     setInterval(loop, 1000);

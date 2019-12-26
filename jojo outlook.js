@@ -38,7 +38,7 @@
         try {
 
             let firstIsUnread = document.getElementsByClassName('_1t7vHwGnGnpVspzC4A22UM')[0].firstElementChild.getAttribute('aria-label').startsWith('Non lu');
-            if (!firstIsUnread){
+            if (!firstIsUnread) {
                 return;
             }
 
@@ -64,9 +64,13 @@
 
     function getUnreadMailsCount() {
         let newUnread = 0;
+        let treated = [];
         jQuery.each($("div[role*=treeitem][title*='" + checkedFolder + "']"), function (name, elem) {
             let $element = jQuery(elem);
-            newUnread += parseInt($element.find('span').find('span')[0].firstChild.data);
+            if (!treated.includes($element.title)) {
+                newUnread += parseInt($element.find('span').find('span')[0].firstChild.data);
+                treated.push($element.title);
+            }
         });
         return newUnread;
     }

@@ -13,10 +13,10 @@
 (function () {
     'use strict';
 
-    applycss('._1_ag99JsBHxI6S4FP5ayPv{display:none !important;}'); // cache menu publicités
+    applycss('._3_hHr3kfEhbNYRFM5YJxH9{display:none !important;}'); // cache menu publicités
     Notification.requestPermission();
     const checkedFolder = 'Boîte de réception';
-    const logo = 'https://ow2.res.office365.com/owamail/2019040101.05/resources/images/favicons/mail-seen.ico';
+    const logo = 'https://ow2.res.office365.com/owamail/2019123003.05/resources/images/favicons/mail-seen.ico';
     let unreadMails = -1;
 
     setInterval(loop, 1000);
@@ -37,16 +37,14 @@
     function onNewMail() {
         try {
 
-            let firstIsUnread = document.getElementsByClassName('_1t7vHwGnGnpVspzC4A22UM')[0].firstElementChild.getAttribute('aria-label').startsWith('Non lu');
+            let firstIsUnread = document.getElementsByClassName('_1xP-XmXM1GGHpRKCCeOKjP')[0].getAttribute('aria-label').startsWith('Non lu');
             if (!firstIsUnread) {
                 return;
             }
-
-            // premier non lu : _1mLYmTUS21AGg7NMqFD_vN
-            // premier lu : _3HQ_h7iVcVeOo03bOFpl__
-            let expediteur = document.getElementsByClassName('_1mLYmTUS21AGg7NMqFD_vN')[0].firstElementChild.textContent;
-            let sujet = document.getElementsByClassName('RKJYnFQ991LYsw_styUw')[0].firstElementChild.textContent;
-            let contenu = document.getElementsByClassName('_2FgAR8a17v_vs5Wo3aA7SR')[0].textContent;
+            
+            let expediteur = document.getElementsByClassName('_3J_S6fOI4B5tFT8R6qMqT7')[0].firstElementChild.textContent;
+            let sujet = document.getElementsByClassName('eMnO0knJStwnaHYEFIS0w')[0].firstElementChild.textContent;
+            let contenu = document.getElementsByClassName('_1Cz6QWtbduTKlAyf910p0h')[0].textContent;
 
             let notification = new Notification(expediteur, {body: sujet + ' - ' + contenu, icon: logo});
             notification.onclick = function () {

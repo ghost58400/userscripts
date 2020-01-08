@@ -15,25 +15,36 @@
     setInterval(loop, 1000);
 
     function loop() {
-        let unread = document.getElementsByClassName('_1ht3').length;
-        //avant premier message, rel="shortcut icon"
-        //let test = $('link[rel="icon"]')[0]; // apres premier message
-        let test = getIcon();
-        if (test != null && test.type !== 'image/png') {
-            test.href = 'https://static.xx.fbcdn.net/rsrc.php/y7/r/O6n_HQxozp9.ico';
-            JojoBadge.updateFavico();
+        let unread = 0;
+        try {
+            unread = document.getElementsByClassName('_1ht3').length;
+            //avant premier message, rel="shortcut icon"
+            //let test = $('link[rel="icon"]')[0]; // apres premier message
+            let test = getIcon();
+            if (test != null && test.type !== 'image/png') {
+                test.href = 'https://static.xx.fbcdn.net/rsrc.php/yg/r/4_vfHVmZ5XD.ico';
+                JojoBadge.updateFavico();
+            }
         }
-        JojoBadge.update(unread);
+        finally {
+            JojoBadge.update(unread);
+        }
+
+    }
+
+    function getLinks() {
+        let icons = [];
+        let links = document.getElementsByTagName('head')[0].getElementsByTagName('link');
+        for (let i = 0; i < links.length; i++) {
+            if ((/(^|\s)icon(\s|$)/i).test(links[i].getAttribute('rel'))) {
+                icons.push(links[i]);
+            }
+        }
+        return icons;
     }
 
     function getIcon() {
-        let links = document.getElementsByTagName('link');
-        for (let link of links){
-            if (link.rel === 'icon'){
-                return link;
-            }
-        }
-        return null;
+        return getLinks()[0];
     }
 
 })();

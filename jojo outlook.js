@@ -41,10 +41,12 @@
             if (!firstIsUnread) {
                 return;
             }
-            
-            let expediteur = document.getElementsByClassName('_3J_S6fOI4B5tFT8R6qMqT7')[0].firstElementChild.textContent;
-            let sujet = document.getElementsByClassName('eMnO0knJStwnaHYEFIS0w')[0].firstElementChild.textContent;
-            let contenu = document.getElementsByClassName('_1Cz6QWtbduTKlAyf910p0h')[0].textContent;
+
+            let first_mail = document.getElementsByClassName('_1xP-XmXM1GGHpRKCCeOKjP')[0];
+
+            let expediteur = first_mail.getElementsByClassName('_3zJzxRam-s-FYVZNqcZ0BW')[0].firstElementChild.textContent;
+            let sujet = first_mail.getElementsByClassName('eMnO0knJStwnaHYEFIS0w')[0].firstElementChild.textContent;
+            let contenu = first_mail.getElementsByClassName('_1Cz6QWtbduTKlAyf910p0h')[0].textContent;
 
             let notification = new Notification(expediteur, {body: sujet + ' - ' + contenu, icon: logo});
             notification.onclick = function () {
